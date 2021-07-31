@@ -1,4 +1,7 @@
 name: My-GithubActions-basics
+env:
+  APPLICATION_NAME   : "MyRxJs"
+  DEPLOY_PACKAGE_NAME: "MyRxJs-deploy-ver-${{github.sha}}"
 
 on:  
  push:
@@ -9,6 +12,11 @@ jobs:
     steps:
     - name: Print Hello Message in Testing
       run: echo "Hello World from testing!"
+    - name: Execute few commands
+      run: |
+       echo "Hello Message1"
+       echo "Hello Message2"
+       echo "Application name is ${{ env.APPLICATION_NAME }}"
       
   my-deploy:  
     runs-on: ubuntu-latest
@@ -16,4 +24,7 @@ jobs:
     steps:
     - name: Print Hello Message in Deploy
       run: echo "Hello world from deploy job!"
+    - name: Printing deployment package
+      run: |      
+       echo "Package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
      
