@@ -10,23 +10,41 @@ jobs:
   my-testing:    
     runs-on: ubuntu-latest     
     steps:
+    
     - name: Print Hello Message in Testing
       run: echo "Hello World from testing!"
+      
     - name: Execute few commands
       run: |
        echo "Hello Message1"
        echo "Hello Message2"
        echo "Application name is ${{ env.APPLICATION_NAME }}"
-    - name: List array folder
+       
+    - name: List current folder
+      run: ls -la
+      
+    - name: Git clone my repo
+      uses: actions/checkout@v1
+      
+    - name: List current folder
       run: ls -la
       
   my-deploy:  
     runs-on: ubuntu-latest
     needs: [my-testing]
+    
     steps:
+    
     - name: Print Hello Message in Deploy
       run: echo "Hello world from deploy job!"
+      
     - name: Printing deployment package
       run: |      
        echo "Package name is ${{ env.DEPLOY_PACKAGE_NAME }}"
+       
+    - name: Lets tests some packages if they are here
+      run: aws --version
+      
+    - name: Lets tests some packages if they are here
+      run: zip
      
