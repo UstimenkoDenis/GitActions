@@ -8,11 +8,11 @@ jobs:
     runs-on: ubuntu-latest     
     steps:
     - name: Print Hello Message
-      run: echo print "Hello World from testing!"
+      run: echo "Hello World from testing!"
       
   my-deploy:  
     runs-on: ubuntu-latest
     steps:
     - name: Print Hello Message
-      run: echo print "Hello world from deploy job!"
+      run: echo "Hello world from deploy job!"
      
