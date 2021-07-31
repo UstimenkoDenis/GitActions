@@ -11,4 +11,5 @@ export class AppComponent  {
   title = 'MyRxJs';
   phones = ["iPhone 7", "LG G 5", "Honor 9", "Idol S4", "Nexus 6P"];
   phone$ = interval(1000).pipe(map( (i: number )=> this.phones[i]));
+  // comment
 }
